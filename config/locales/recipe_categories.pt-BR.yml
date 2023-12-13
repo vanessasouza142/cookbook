@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models: 
+      one: Categoria de receita
+      other: Categorias de receitas
+    attributes:
+      recipe_category:
+        name: Nome
+  recipe_category:
+    create:
+      success:  'Categoria de receita cadastrada com sucesso'
+      error:  'Não foi possível cadastrar categoria de receita'
