@@ -1,4 +1,6 @@
 class RecipeCategoriesController < ApplicationController
+  before_action :authenticate_user!, only: %i[create new index]
+  before_action :authorize_user, only: %i[create new index]
 
   def index
     @recipe_categories = RecipeCategory.all
@@ -22,5 +24,9 @@ class RecipeCategoriesController < ApplicationController
 
   def recipe_category_params
     params.require(:recipe_category).permit(:name)
+  end
+
+  def authorize_user
+    return redirect_to root_path unless current_user.admin?
   end
 end
